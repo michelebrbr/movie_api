@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>documentation</title>
+</head>
+
+<body>
+  <h1>Documentation</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Business Logic</th>
+        <th>URL</th>
+        <th>HTTP Method</th>
+        <th>Request body data format</th>
+        <th>Response body data format</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Get a list of movies</td>
+        <td>/movies</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A JSON object holding data about all the movies</td>
+      </tr>
+      <tr>
+        <td>Get data about a single movie by title</td>
+        <td>/movies/:title</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>
+          A JSON object holding data about a single movie,<br>
+          Example:<br>
+          {<br>
+            title: 'The wolf of Wall Street',<br>
+            director: {<br>
+                name: 'Martin Scorsese',<br>
+                birth_year: 1942,<br>
+                bio: 'Martin Charles Scorsese is an American film director, producer, screenwriter, and actor.'<br>
+            },<br>
+            genre: 'Biography',<br>
+            description: 'Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption and the federal government.'<br>
+          }
+        </td>
+      </tr>
+      <tr>
+        <td>Add a movie</td>
+        <td>/movies</td>
+        <td>POST</td>
+        <td>
+          A JSON object holding data about the movie to add,<br>
+          Example:<br>
+          {<br>
+            title: 'The wolf of Wall Street',<br>
+            director: {<br>
+                name: 'Martin Scorsese',<br>
+                birth_year: 1942,<br>
+                bio: 'Martin Charles Scorsese is an American film director, producer, screenwriter, and actor.'<br>
+            },<br>
+            genre: 'Biography',<br>
+            description: 'Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption and the federal government.'<br>
+          }
+        </td>
+        <td>
+          A JSON object holding data about the movie to add, including an ID<br>
+          Example:<br>
+          {<br>
+            id: 1, <br>
+            title: 'The wolf of Wall Street',<br>
+            director: {<br>
+                name: 'Martin Scorsese',<br>
+                birth_year: 1942,<br>
+                bio: 'Martin Charles Scorsese is an American film director, producer, screenwriter, and actor.'<br>
+            },<br>
+            genre: 'Biography',<br>
+            description: 'Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption and the federal government.'<br>
+          }
+        </td>
+      </tr>
+      <tr>
+        <td>Get the data about a specific director by name</td>
+        <td>/director/:name</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A JSON object holding data about a director</td>
+      </tr>
+      <tr>
+        <td>Allow new users to register</td>
+        <td>/users</td>
+        <td>POST</td>
+        <td>A JSON user object. Example:<br>
+          {<br>
+            Username: 'leorio11',<br>
+            Password: 'medicine',<br>
+            Email: 'leoriohxh@mockgmail.com',<br>
+            Birthday: 11-08-1996<br>
+        }<br>
+        </td>
+        <td>A text message indicating wheter the user was successfully registered</td>
+      </tr>
+      <tr>
+        <td>Allow users to update their user info</td>
+        <td>/users/:username</td>
+        <td>PUT</td>
+        <td>A JSON user object. Example:<br>
+          {<br>
+            Username: 'leorio11',<br>
+            Password: 'medicine',<br>
+            Email: 'leoriohxh@mockgmail.com',<br>
+            Birthday: 11-08-1996<br>
+        }<br>
+        </td>
+        <td>A text message indicating wheter the user info was successfully updated</td>
+      </tr>
+      <tr>
+        <td>Allow users to add a movie to their favorites</td>
+        <td>/users/:username/movies/:_id(MovieID)</td>
+        <td>PUT</td>
+        <td>The username of the user and the MovieID (_id)
+        </td>
+        <td>A text message indicating wheter the movie was successfully added to the user favorite list</td>
+      </tr>
+      <tr>
+        <td>Allow users to remove a movie from their list of favorites</td>
+        <td>/users/:username/movies/:_id(MovieID)</td>
+        <td>DELETE</td>
+        <td>The username of the user and the MovieID</td>
+        <td>A text message indicating whether the movie was successfully removed</td>
+      </tr>
+      <tr>
+        <td>Allow existing users to deregister</td>
+        <td>/users/:username</td>
+        <td>DELETE</td>
+        <td>The user's username</td>
+        <td>A text message indicating whether the user was successfully deregistered</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>
