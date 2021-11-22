@@ -19,9 +19,9 @@ mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifie
 const app = express();
 //including CORS that allows all domain.
 
-/*app.use(cors());
+app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));*/
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const passport = require('passport');
 require('./passport');
