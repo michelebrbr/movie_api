@@ -27,6 +27,8 @@ const passport = require('passport');
 require('./passport');
 let auth = require('./auth')(app);
 
+console.log('running')
+
 //Return the list of ALL movies to the user.
 app.get('/movies',/*passport.authenticate('jwt', { session: false }),*/(req, res) => {
   Movies.find()
