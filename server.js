@@ -24,7 +24,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const passport = require('passport');
 require('./passport');
-let auth = require('./auth')(app);
+//let auth = require('./auth')(app);
+app.get('/login',/*passport.authenticate('jwt', { session: false }),*/(req, res) => {
+  res.send('test');
+});
 
 //Return the list of ALL movies to the user.
 app.get('/movies',/*passport.authenticate('jwt', { session: false }),*/(req, res) => {
