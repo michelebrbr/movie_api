@@ -1,4 +1,4 @@
-/*const express = require('express');
+const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const uuid = require('uuid');
@@ -10,7 +10,7 @@ const Movies = Models.Movie;
 const Users = Models.User;
 const Genres = Models.Genre;
 const Directors = Models.Director;
-const { check, validationResult } = require('express-validator'); DESKTOP*/
+const { check, validationResult } = require('express-validator');
 
 //mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true}); //to connect in local
 
@@ -19,9 +19,9 @@ mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifie
 const app = express();
 //including CORS that allows all domain.
 
-app.use(cors());
+/*app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));*/
 
 const passport = require('passport');
 require('./passport');
