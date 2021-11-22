@@ -15,6 +15,9 @@ const { check, validationResult } = require('express-validator');
 mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true}); //to connect to heroku
 
 const app = express();
+//including CORS that allows all domain.
+const cors = require('cors');
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,10 +25,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const passport = require('passport');
 require('./passport');
 let auth = require('./auth')(app);
-
-//including CORS that allows all domain.
-const cors = require('cors');
-app.use(cors());
 
 //Return the list of ALL movies to the user.
 app.get('/movies',/*passport.authenticate('jwt', { session: false }),*/(req, res) => {
