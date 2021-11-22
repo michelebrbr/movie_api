@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const uuid = require('uuid');
 const mongoose = require('mongoose');
 const Models = require('./models.js');
+const cors = require('cors');
+
 const Movies = Models.Movie;
 const Users = Models.User;
 const Genres = Models.Genre;
@@ -16,18 +18,14 @@ mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifie
 
 const app = express();
 //including CORS that allows all domain.
-const cors = require('cors');
-app.use(cors());
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const passport = require('passport');
 require('./passport');
-//let auth = require('./auth')(app);
-app.get('/login',/*passport.authenticate('jwt', { session: false }),*/(req, res) => {
-  res.send('test');
-});
+let auth = require('./auth')(app);
 
 //Return the list of ALL movies to the user.
 app.get('/movies',/*passport.authenticate('jwt', { session: false }),*/(req, res) => {
