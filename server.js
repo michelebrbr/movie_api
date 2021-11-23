@@ -17,7 +17,7 @@ const { check, validationResult } = require('express-validator');
 mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true}); //to connect to heroku
 
 const app = express();
-//including CORS that allows all domain.
+//including CORS that allows all domain..
 
 app.use(cors());
 app.use(bodyParser.json());
