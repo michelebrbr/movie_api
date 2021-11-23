@@ -28,7 +28,7 @@ userSchema.statics.hashPassword = (password) => { console.log("password 1",passw
   };
   
   userSchema.methods.validatePassword = function(password) { console.log("password 2",password)
-    return bcrypt.compareSync(password, this.Password);
+    return bcrypt.compareSync(password, this.password);
   };
 
 let genreSchema = mongoose.Schema({
