@@ -22,13 +22,12 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-//comment locally
-//another comment
+
 const passport = require('passport');
 require('./passport');
 let auth = require('./auth')(app);
 
-//console.log('new text');
+//console.log('Aenz');
 
 //Return the list of ALL movies to the user.
 app.get('/movies',passport.authenticate('jwt', { session: false }),(req, res) => {
