@@ -31,7 +31,7 @@ let auth = require('./auth')(app);
 //console.log('new text');
 
 //Return the list of ALL movies to the user.
-app.get('/movies',/*passport.authenticate('jwt', { session: false }),*/(req, res) => {
+app.get('/movies',passport.authenticate('jwt', { session: false }),(req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
